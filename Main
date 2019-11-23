@@ -1,0 +1,10 @@
+import os,shutil
+if os.path.isdir(os.getcwd()):
+	for root, dirs, files in os.walk(os.getcwd()):
+		for name in files:
+			folder=os.path.splitext(name)[1].replace('.','')+"_stark jackey"
+			if not os.path.isdir(os.getcwd()+"/"+folder):
+				os.mkdir(folder)
+			try: shutil.move(name,folder)
+			except: print name," File already in exist"
+		break
